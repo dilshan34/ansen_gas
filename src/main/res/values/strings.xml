@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AnsenGas</string>
+
+    <string-array name="test">
+        <item>test1</item>
+        <item>test2</item>
+        <item>test3</item>
+        <item>test4</item>
+        <item>test5</item>
+
+    </string-array>
+
+    <string-array name="bank">
+        <item>Peoples</item>
+        <item>HNB</item>
+        <item>BOC</item>
+        <item>Sampath</item>
+        <item>Commercial</item>
+
+    </string-array>
+
+
+</resources>

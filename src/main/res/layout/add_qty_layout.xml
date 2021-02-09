@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:background="#D3D3D3"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trust Quantity"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/trQtyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Trust Quantity  :"
+                android:textColor="#131313" />
+
+            <EditText
+                android:id="@+id/txttrystQty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/card_background_white"
+                android:inputType="number"
+                android:padding="5dp"
+                android:text="0"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/trReQtyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Trust Return
+                Quantity"
+                android:textColor="#131313" />
+
+            <EditText
+                android:id="@+id/txttrustReqty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/card_background_white"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:inputType="number"
+                android:padding="5dp"
+                android:text="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/emptyQtyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Empty Quantity"
+                android:textColor="#131313" />
+
+            <EditText
+                android:id="@+id/txtEmptyQty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/card_background_white"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:inputType="number"
+                android:padding="5dp"
+                android:text="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/txtFullQtyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Full Quantity"
+                android:textColor="#131313" />
+
+            <EditText
+                android:id="@+id/txtFullQty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/card_background_white"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:inputType="number"
+                android:padding="5dp"
+                android:text="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addTrust"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Trust"
+                android:background="@drawable/btn"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/addQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn"
+                android:text="Add Quantity"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
