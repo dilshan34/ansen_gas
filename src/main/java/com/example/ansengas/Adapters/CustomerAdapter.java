@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ansengas.Constant;
 import com.example.ansengas.R;
 import com.example.ansengas.Ui.InvoiceActivity;
+import com.example.ansengas.Ui.customer_index;
 import com.example.ansengas.models.getSetCustomer;
 
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(context,InvoiceActivity.class);
+                Intent intent=new Intent(context, customer_index.class);
                 intent.putExtra("cusId",arrayList.get(position).getCusid().toString());
                 intent.putExtra("outstanding",arrayList.get(position).getOutStanding().toString());
                 intent.putExtra("creditLimit",arrayList.get(position).getCreditlimit().toString());

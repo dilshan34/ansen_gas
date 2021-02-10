@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AnsenGas">
-        <activity android:name=".Ui.IssuePayment"></activity>
+        <activity android:name=".Ui.customer_index"></activity>
         <activity android:name=".InvoiceDetailActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".Ui.MainActivity" />
@@ -19,8 +19,8 @@
         <activity android:name=".Ui.ViewOldInvoiceActivity" />
         <activity android:name=".Ui.ViewCustomersActivity" />
         <activity android:name=".Ui.HomeActivity" />
-        <activity android:name=".Ui.splashScreen" />
-        <activity android:name=".Ui.invoice_payment">
+        <activity android:name=".Ui.invoice_payment" />
+        <activity android:name=".Ui.splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

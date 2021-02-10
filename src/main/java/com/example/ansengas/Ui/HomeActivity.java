@@ -46,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
     ProgressDialog pd;
     String taskMessage = "";
     private Toolbar mtoolbar;
+    String TAG = "s";
 
 
     @Override
@@ -155,6 +156,10 @@ public class HomeActivity extends AppCompatActivity {
             getRejectReason();
             publishProgress(progressCount++);
 
+            taskMessage =("Bank Data adding");
+            getAllBanks();
+            publishProgress(progressCount++);
+
 
             return null;
         }
@@ -231,6 +236,54 @@ public class HomeActivity extends AppCompatActivity {
 
                                 SQLiteDatabase database = db_helper.getWritableDatabase();
                                 db_helper.saveProductCategory(id, category, database);
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                //  Hours.setText("Something Went Wrong Please Try again later....");
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parmas = new HashMap<>();
+                parmas.put("rootId", Shaireprefmanager.getInstance(HomeActivity.this).getKeyRoot().toString());
+                return parmas;
+            }
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                60000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestque(stringRequest);
+
+    }
+
+    private void getAllBanks(){
+        final DbHelper db_helper = new DbHelper(HomeActivity.this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.Get_All_Banks,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            Log.e("response", "onResponse: " + response);
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                String bank_id = jsonObject.getString("bank_id");
+                                String bankname = jsonObject.getString("bankname");
+
+                                Log.e(TAG, "onResponse: "+ bankname );
+
+                                SQLiteDatabase database = db_helper.getWritableDatabase();
+                                db_helper.saveAllBanks(bank_id, bankname, database);
 
                             }
 

@@ -23,6 +23,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String CREATE_INVOICE_ITEM_TABLETEMP = "CREATE TABLE INVOICE_ITEM_TEMP(ID INTEGER PRIMARY KEY AUTOINCREMENT,invoiceId TEXT,prductId TEXT,fullQty TEXT,emptyQty TEXT,trustQty TEXT,trustRetuenQty TEXT,refillQty TEXT,returnQty TEXT,newQty TEXT,refillPrice TEXT,newPrice TEXT,totalAmount TEXT,suncStatus TEXT)";
     private static final String CREATE_INVOICE_TABLE = "CREATE TABLE INVOICE(ID INTEGER PRIMARY KEY AUTOINCREMENT,customerId TEXT,netPrice TEXT,date TEXT,rejectReason TEXT,syncStatus TEXT)";
     private static final String CREATE_REJECT_REASON_TABLE = "CREATE TABLE REJECT_REASON(Id TEXT PRIMARY KEY,reason TEXT)";
+    private static final String CREATE_BANK = " CREATE TABLE BANK(bank_id TEXT PRIMARY KEY,bankname TEXT)";
 
     SQLiteDatabase db;
 
@@ -45,6 +46,8 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_INVOICE_ITEM_TABLETEMP);
         db.execSQL(CREATE_INVOICE_TABLE);
         db.execSQL(CREATE_REJECT_REASON_TABLE);
+        db.execSQL(CREATE_BANK);
+
     }
 
     @Override
@@ -52,6 +55,13 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void saveAllBanks(String bank_id , String bankname ,SQLiteDatabase database){
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("bank_id",bank_id);
+        contentValues.put("bankname",bankname);
+        database.replace("BANK",null,contentValues);
+    }
 
     public void saveCustomersToLocal(String cusid, String name, String mobile, String outStanding, String address, String creditlimit, SQLiteDatabase database) {
 
